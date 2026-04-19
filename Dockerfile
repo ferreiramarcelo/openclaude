@@ -1,5 +1,5 @@
 # ---- build stage ----
-FROM node:22-slim AS build
+FROM node:22.22.2-trixie-slim AS build
 
 # Install Bun
 RUN npm install -g bun@1.3.11
@@ -25,7 +25,7 @@ RUN bun run build
 RUN rm -rf node_modules && bun install --frozen-lockfile --production
 
 # ---- runtime stage ----
-FROM node:22-slim
+FROM node:22.22.2-trixie-slim
 
 WORKDIR /app
 
